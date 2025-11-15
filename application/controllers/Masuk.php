@@ -30,13 +30,14 @@ class Masuk extends CI_Controller {
 		'id_supplier' => $this->input->post('id_supplier')
 		);
 		$this->M_masuk->input_data($data,'barang_masuk');
-		$query2 = $this->db->query("CALL tambah_masuk('".$this->input->post('id_barang')."','".$this->input->post('jml_masuk')."')");
+$this->db->simple_query("CALL tambah_masuk('".$this->input->post('id_barang')."','".$this->input->post('jml_masuk')."')");
 		redirect('Masuk/index');
 	}
 	function hapus($id){
 		$query = $this->db->query("SELECT*FROM barang_masuk WHERE id_barang='".$id."'");
 		$barang = $query->row();
-		$query2 = $this->db->query("CALL batal_masuk('".$id."','".$barang->jml_masuk."')");
+$this->db->simple_query("CALL batal_masuk('".$id."','".$barang->jml_masuk."')");
+mysqli_next_result($this->db->conn_id);
 		$where = array('id_barang' => $id);
 		$this->M_masuk->hapus_data($where,'barang_masuk');
 		redirect('Masuk/index');

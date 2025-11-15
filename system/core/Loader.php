@@ -27,7 +27,23 @@
  * @category	Loader
  * @link		http://codeigniter.com/user_guide/libraries/loader.html
  */
-class CI_Loader {
+
+ class CI_Loader {
+
+    public $benchmark;
+    public $hooks;
+    public $config;
+    public $utf8;
+    public $uri;
+    public $router;
+    public $output;
+    public $security;
+    public $input;
+    public $lang;
+    public $load;
+    public $db;
+    public $session;
+    public $m_login;
 
 	// All these are set automatically. Don't mess with them.
 	/**
